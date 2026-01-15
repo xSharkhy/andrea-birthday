@@ -11,9 +11,15 @@ const { title = 'Feliç 23, Andrius!' } = Astro.props
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Una web que no vas demanar. Però ací està." />
+    <meta name="description" content="Web d'aniversari per als 23 anys d'Andrea. Feta amb massa hores, 0€ de pressupost i quantitats il·legals de carinyo. Inclou quiz, minijocs i easter eggs ocults." />
     <meta name="robots" content="noindex, nofollow" />
+    <meta property="og:title" content="Feliç 23, Andrius!" />
+    <meta property="og:description" content="Una web que no vas demanar. Però ací està. 🎂" />
+    <meta property="og:type" content="website" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
     <title>{title}</title>
   </head>
   <body class="min-h-screen bg-[--color-bg] text-[--color-text] overflow-x-hidden">
