@@ -413,7 +413,7 @@ export const copy = {
       '',
       'Vull seguir al teu costat.',
       'Vull seguir sent eixa persona que et trau el millor.',
-      'I vull que tu seguesques sent la que em trau el millor a mi.',
+      'I vull que tu segueixis sent la que em trau el millor a mi.',
       '',
       'Perquè junts som més.',
       'Més forts. Més bons. Més nosaltres.',
