@@ -526,7 +526,7 @@ export const copy = {
   footer: {
     text: 'Fet amb carinyo, cafè i una quantitat qüestionable d\'hores.',
     copyright: '© 2025 - Cap dret reservat perquè açò és gratis.',
-    ps: 'PD: Seguisc guanyant-te al Mario Kart i al Hollow Knight.'
+    ps: 'PD: Seguisc guanyant-te al Mario Kart.'
   },
 
   // UI Elements
@@ -534,7 +534,7 @@ export const copy = {
     scrollDown: 'Baixar (no hi ha ascensor)',
     startButton: 'Començar la waskatraska',
     loading: 'Carregant... com la teua partida de Hollow Knight',
-    backToTop: 'Tornar al principi (però no del Hollow Knight, eixe te\'l curres tu)',
+    backToTop: 'Tornar al principi',
     brokenCounter: 'Elements destrossats:',
     therapyProgress: 'La teua teràpia: en progrés'
   },
@@ -719,7 +719,6 @@ export const copy = {
         'Artista: Vincent van Gogh',
         'Estil: Impressionisme (el bo)',
         'Orelles: 1.5 de mitjana',
-        'Respecte d\'Andrea per ell: màxim'
       ],
       text: [
         'A diferència d\'altres artistes,',
