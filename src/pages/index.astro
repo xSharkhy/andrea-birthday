@@ -1,0 +1,146 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import Hero from '@/components/Hero'
+import Intro from '@/components/Intro'
+import FriendshipCounter from '@/components/FriendshipCounter'
+import Quiz from '@/components/Quiz'
+import Timeline from '@/components/Timeline'
+import ProvinceMap from '@/components/ProvinceMap'
+import Learned from '@/components/Learned'
+import MarioKart from '@/components/MarioKart'
+import HollowKnight from '@/components/HollowKnight'
+import Gallery from '@/components/Gallery'
+import FinalMessage from '@/components/FinalMessage'
+import Footer from '@/components/Footer'
+import ConfettiButton from '@/components/ConfettiButton'
+import EasterEggsContainer from '@/components/EasterEggsContainer'
+---
+
+<Layout>
+  <main class="relative">
+    <!-- Hero Section -->
+    <Hero client:load />
+
+    <!-- Intro Section -->
+    <Intro client:visible />
+
+    <!-- Friendship Counter -->
+    <FriendshipCounter client:visible />
+
+    <!-- Quiz Section -->
+    <Quiz client:visible />
+
+    <!-- Timeline Section -->
+    <Timeline client:visible />
+
+    <!-- Province Map -->
+    <ProvinceMap client:visible />
+
+    <!-- Learned Section -->
+    <Learned client:visible />
+
+    <!-- Gallery Section -->
+    <Gallery client:visible />
+
+    <!-- Mario Kart Mini-game -->
+    <MarioKart client:visible />
+
+    <!-- Hollow Knight Mini-game -->
+    <HollowKnight client:visible />
+
+    <!-- Final Message -->
+    <FinalMessage client:visible />
+
+    <!-- Confetti button -->
+    <div class="fixed bottom-4 left-4 z-40">
+      <ConfettiButton client:load className="text-2xl opacity-50 hover:opacity-100 transition-opacity">
+        🎉
+      </ConfettiButton>
+    </div>
+
+    <!-- Easter Eggs -->
+    <EasterEggsContainer client:load />
+
+    <!-- Footer -->
+    <Footer client:visible />
+  </main>
+</Layout>
+
+<style>
+  main::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 25% 25%, rgba(168, 85, 247, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(132, 163, 68, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+  }
+</style>
+
+<script>
+  let keyBuffer = ''
+
+  document.addEventListener('keydown', (e) => {
+    keyBuffer += e.key.toLowerCase()
+
+    if (keyBuffer.includes('waskatraska')) {
+      keyBuffer = ''
+      triggerWaskatraska()
+    }
+
+    if (keyBuffer.includes('ayahuaska')) {
+      keyBuffer = ''
+      triggerAyahuaska()
+    }
+
+    if (keyBuffer.length > 20) {
+      keyBuffer = keyBuffer.slice(-10)
+    }
+  })
+
+  function triggerWaskatraska() {
+    const div = document.createElement('div')
+    div.innerHTML = `
+      <div style="position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
+        <h2 style="font-size: 3rem; color: #a855f7; font-family: 'Comic Sans MS', cursive;">WASKATRASKA DETECTAT</h2>
+        <p style="color: #84a344;">Nivell d'amistat: verificat</p>
+        <p style="color: #84a344;">Accés VIP: concedit</p>
+        <p style="color: #84a344;">Sentit: cap</p>
+        <p style="color: white;">Com ha de ser.</p>
+      </div>
+    `
+    document.body.appendChild(div)
+    document.body.style.animation = 'shake 0.5s ease'
+
+    setTimeout(() => {
+      div.remove()
+      document.body.style.animation = ''
+    }, 3000)
+  }
+
+  function triggerAyahuaska() {
+    const div = document.createElement('div')
+    div.style.cssText = 'position: fixed; inset: 0; z-index: 9999; pointer-events: none;'
+    div.innerHTML = `<div style="position: absolute; inset: 0; background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff); opacity: 0.3; mix-blend-mode: overlay;"></div>`
+
+    const style = document.createElement('style')
+    style.textContent = `
+      @keyframes psychedelic {
+        0% { filter: hue-rotate(0deg) saturate(1); }
+        50% { filter: hue-rotate(180deg) saturate(3); }
+        100% { filter: hue-rotate(360deg) saturate(1); }
+      }
+    `
+    document.head.appendChild(style)
+    document.body.appendChild(div)
+    document.body.style.animation = 'psychedelic 2s ease'
+
+    setTimeout(() => {
+      div.remove()
+      style.remove()
+      document.body.style.animation = ''
+    }, 2000)
+  }
+</script>

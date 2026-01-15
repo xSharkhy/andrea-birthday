@@ -1,0 +1,281 @@
+@import "tailwindcss";
+
+/* Fonts - Mixing intentionally for anti-design */
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/GeistVariableVF.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('/fonts/GeistMonoVariableVF.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Andrea's Theme - Morat, Kaki, Negre + Anti-design chaos */
+@theme {
+  /* Background colors - Deep black base */
+  --color-bg: #0a0a0a;
+  --color-bg-surface: #111111;
+  --color-bg-highlight: #1a1a1a;
+  --color-bg-elevated: #222222;
+
+  /* Primary palette - Purple (morat) */
+  --color-purple: #a855f7;
+  --color-purple-light: #c084fc;
+  --color-purple-dark: #7c3aed;
+  --color-purple-muted: #6b21a8;
+
+  /* Secondary - Kaki/Olive green */
+  --color-kaki: #84a344;
+  --color-kaki-light: #a3c962;
+  --color-kaki-dark: #5c7a2e;
+  --color-kaki-muted: #4a5d32;
+
+  /* Accent colors for chaos */
+  --color-accent-pink: #ec4899;
+  --color-accent-yellow: #facc15;
+  --color-accent-orange: #f97316;
+  --color-accent-red: #ef4444;
+  --color-accent-cyan: #22d3ee;
+
+  /* Text colors */
+  --color-text: #e4e4e7;
+  --color-text-bright: #ffffff;
+  --color-text-muted: #a1a1aa;
+  --color-text-dark: #71717a;
+
+  /* Borders */
+  --color-border: #27272a;
+  --color-border-highlight: #3f3f46;
+
+  /* Fonts */
+  --font-sans: 'Geist', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
+  --font-comic: 'Comic Sans MS', 'Comic Sans', cursive;
+  --font-papyrus: 'Papyrus', fantasy;
+  --font-impact: 'Impact', 'Arial Black', sans-serif;
+  --font-times: 'Times New Roman', Times, serif;
+}
+
+/* Base styles */
+html {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.7;
+  font-weight: 400;
+  overflow-x: clip;
+}
+
+/* Anti-design utility classes */
+.font-comic {
+  font-family: var(--font-comic) !important;
+}
+
+.font-papyrus {
+  font-family: var(--font-papyrus) !important;
+}
+
+.font-impact {
+  font-family: var(--font-impact) !important;
+}
+
+.font-times {
+  font-family: var(--font-times) !important;
+}
+
+/* Intentionally bad gradients */
+.gradient-chaos {
+  background: linear-gradient(
+    45deg,
+    var(--color-purple) 0%,
+    var(--color-kaki) 25%,
+    var(--color-accent-pink) 50%,
+    var(--color-accent-yellow) 75%,
+    var(--color-purple) 100%
+  );
+}
+
+.gradient-ugly {
+  background: linear-gradient(
+    135deg,
+    #ff00ff 0%,
+    #00ff00 50%,
+    #ffff00 100%
+  );
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-purple);
+  color: var(--color-bg);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-purple-muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-purple);
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px dashed var(--color-purple);
+  outline-offset: 4px;
+}
+
+/* Cursor blink */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Shake animation for chaos */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px) rotate(-1deg); }
+  75% { transform: translateX(5px) rotate(1deg); }
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Glitch effect */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.glitch {
+  animation: glitch 0.3s ease-in-out infinite;
+}
+
+/* Rainbow text */
+@keyframes rainbow {
+  0% { color: #ff0000; }
+  17% { color: #ff8000; }
+  33% { color: #ffff00; }
+  50% { color: #00ff00; }
+  67% { color: #0080ff; }
+  83% { color: #8000ff; }
+  100% { color: #ff0000; }
+}
+
+.rainbow {
+  animation: rainbow 3s linear infinite;
+}
+
+/* Spin for chaos moments */
+@keyframes chaos-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.chaos-spin {
+  animation: chaos-spin 2s linear infinite;
+}
+
+/* Float animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Broken/tilted elements */
+.tilt-left {
+  transform: rotate(-3deg);
+}
+
+.tilt-right {
+  transform: rotate(3deg);
+}
+
+.tilt-random-1 { transform: rotate(-2deg); }
+.tilt-random-2 { transform: rotate(1.5deg); }
+.tilt-random-3 { transform: rotate(-4deg); }
+.tilt-random-4 { transform: rotate(2.5deg); }
+
+/* Breakable element styles */
+.breakable {
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.breakable:hover {
+  transform: scale(1.02);
+}
+
+.broken {
+  opacity: 0.3;
+  transform: rotate(5deg) scale(0.95);
+  filter: grayscale(1);
+  pointer-events: none;
+}
+
+/* Easter egg trigger areas */
+.easter-egg-trigger {
+  cursor: help;
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
