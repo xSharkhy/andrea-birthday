@@ -83,9 +83,9 @@ export const copy = {
         question: 'Amb quina bandera es va tapar l\'Andrea del Sol al seu primer Raimera Roca?',
         options: [
           { text: 'Espanya (improbable coneixent-la)', correct: false },
-          { text: 'Catalunya (òbvia però no)', correct: false },
+          { text: 'Catalunya (òbvia)', correct: false },
           { text: 'País Basc (la que va trobar primer)', correct: true },
-          { text: 'Una tovallola de Bob Esponja (no és bandera però haguera molat)', correct: false }
+          { text: 'Una tovallola de Bob Esponja (no és bandera però mola)', correct: false }
         ]
       },
       {
@@ -119,7 +119,7 @@ export const copy = {
           'Em fa il·lusió pensar que és la segona.',
           '',
           'Gràcies per recordar-ho tot, Andrius.',
-          'Fins i tot el del gat i la mamella.'
+          'Menció especial per a en Bruno.'
         ]
       },
       good: {
@@ -142,7 +142,7 @@ export const copy = {
           '',
           'O que estàs avorrida.',
           '',
-          'Accepte les dos.'
+          'Accepte les dues.'
         ]
       },
       bad: {
@@ -176,12 +176,12 @@ export const copy = {
     ],
     stats: [
       { label: 'Concerts compartits', value: 'massa per a comptar-los, pocs per a parar' },
-      { label: 'Festivals sobreviscuts', value: 'molts, però massa pocs (cap amb dignitat intacta)' },
+      { label: 'Festivals sobreviscuts', value: 'molts (cap amb dignitat intacta)' },
       { label: 'Kalimotxos que van eixir mal', value: 'almenys un memorable' },
-      { label: 'Cues de 2km evitades', value: '1 (la de Montjuïc, encara em ric)' },
+      { label: 'Cues de 2km evitades', value: '1 (la de Montjuïc, encara em fa riure)' },
       { label: 'Partides de Mario Kart', value: 'moltes' },
       { label: '↳ Guanyades per tu', value: 'poques' },
-      { label: '↳ Guanyades per mi', value: 'les suficients per a que seguesques amb ràbia' },
+      { label: '↳ Guanyades per mi', value: 'les suficients per a que segueixis amb ràbia' },
       { label: 'Vegades que has intentat passar-te el Hollow Knight', value: 'incontables, o encara la mateixa...' },
       { label: '↳ Vegades que ho has aconseguit', value: '[LOADING...]' },
       { label: 'Vegades que m\'has aguantat', value: 'incalculables' }
