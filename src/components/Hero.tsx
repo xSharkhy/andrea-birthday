@@ -163,27 +163,28 @@ export default function Hero() {
           </motion.div>
         )}
 
-        {/* Scroll indicator */}
-        {showScroll && (
-          <motion.div
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="text-sm text-[--color-text-muted] font-comic">
-              {copy.ui.scrollDown}
-            </span>
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-              className="text-2xl"
-            >
-              ↓
-            </motion.div>
-          </motion.div>
-        )}
       </div>
+
+      {/* Scroll indicator - posicionat relatiu a la secció */}
+      {showScroll && (
+        <motion.div
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <span className="text-sm text-[--color-text-muted] font-comic">
+            {copy.ui.scrollDown}
+          </span>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+            className="text-2xl"
+          >
+            ↓
+          </motion.div>
+        </motion.div>
+      )}
 
       {/* Anti-design corner decorations */}
       <div
