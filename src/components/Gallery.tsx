@@ -37,7 +37,23 @@ const photos = [
 
 export default function Gallery() {
   const prefersReducedMotion = useReducedMotion()
-  const [selectedPhoto, setSelectedPhoto] = useState<typeof photos[0] | null>(null)
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
+
+  const selectedPhoto = selectedIndex !== null ? photos[selectedIndex] : null
+
+  const goToPrevious = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    if (selectedIndex !== null) {
+      setSelectedIndex(selectedIndex === 0 ? photos.length - 1 : selectedIndex - 1)
+    }
+  }
+
+  const goToNext = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    if (selectedIndex !== null) {
+      setSelectedIndex(selectedIndex === photos.length - 1 ? 0 : selectedIndex + 1)
+    }
+  }
 
   return (
     <section className="py-20 px-4 relative" id="gallery">
@@ -90,7 +106,7 @@ export default function Gallery() {
               {...getScrollAnimationProps(scaleInBouncy, prefersReducedMotion, defaultViewport)}
               whileHover={{ scale: 1.05, rotate: 0, zIndex: 10 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => setSelectedPhoto(photo)}
+              onClick={() => setSelectedIndex(index)}
             >
               {/* Polaroid frame */}
               <div
@@ -156,14 +172,74 @@ export default function Gallery() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="fixed inset-0 bg-black/90 z-50"
-              onClick={() => setSelectedPhoto(null)}
+              onClick={() => setSelectedIndex(null)}
             />
+
+            {/* Botó tancar */}
+            <motion.button
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0 }}
+              className="fixed top-4 right-4 z-[60] w-12 h-12 rounded-full flex items-center justify-center text-2xl font-bold shadow-lg"
+              style={{
+                background: 'var(--color-accent-pink)',
+                color: 'white',
+                border: '3px solid white'
+              }}
+              onClick={() => setSelectedIndex(null)}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              aria-label="Tancar"
+            >
+              ✕
+            </motion.button>
+
+            {/* Fletxa esquerra */}
+            <motion.button
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              className="fixed left-4 top-1/2 -translate-y-1/2 z-[60] w-12 h-12 rounded-full flex items-center justify-center text-2xl shadow-lg"
+              style={{
+                background: 'var(--color-purple)',
+                color: 'white',
+                border: '2px solid white'
+              }}
+              onClick={goToPrevious}
+              whileHover={{ scale: 1.1, x: -3 }}
+              whileTap={{ scale: 0.9 }}
+              aria-label="Foto anterior"
+            >
+              ←
+            </motion.button>
+
+            {/* Fletxa dreta */}
+            <motion.button
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 20 }}
+              className="fixed right-4 top-1/2 -translate-y-1/2 z-[60] w-12 h-12 rounded-full flex items-center justify-center text-2xl shadow-lg"
+              style={{
+                background: 'var(--color-purple)',
+                color: 'white',
+                border: '2px solid white'
+              }}
+              onClick={goToNext}
+              whileHover={{ scale: 1.1, x: 3 }}
+              whileTap={{ scale: 0.9 }}
+              aria-label="Foto següent"
+            >
+              →
+            </motion.button>
+
+            {/* Foto */}
             <motion.div
+              key={selectedPhoto.id}
               initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               exit={{ opacity: 0, scale: 0.8, rotate: 10 }}
               className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 max-w-[90vw]"
-              onClick={() => setSelectedPhoto(null)}
+              onClick={() => setSelectedIndex(null)}
             >
               <div
                 className="p-4 pb-16 rounded-sm shadow-2xl"
@@ -186,6 +262,28 @@ export default function Gallery() {
                   {selectedPhoto.caption}
                 </p>
               </div>
+            </motion.div>
+
+            {/* Indicador de posició */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] flex gap-2"
+            >
+              {photos.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={(e) => { e.stopPropagation(); setSelectedIndex(i) }}
+                  className="w-3 h-3 rounded-full transition-all"
+                  style={{
+                    background: i === selectedIndex ? 'var(--color-purple)' : 'white',
+                    opacity: i === selectedIndex ? 1 : 0.5,
+                    transform: i === selectedIndex ? 'scale(1.3)' : 'scale(1)'
+                  }}
+                  aria-label={`Foto ${i + 1}`}
+                />
+              ))}
             </motion.div>
           </>
         )}
