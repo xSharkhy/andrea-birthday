@@ -53,7 +53,7 @@ export const copy = {
     ],
     questions: [
       {
-        question: 'Quantes províncies de l\'Estat Espanyol hem visitat junts?',
+        question: 'Quantes províncies de l\'Estat Espanyol hem visitat juntes?',
         options: [
           { text: '3 (som bàsicament sedentaris)', correct: false },
           { text: '7 (una miqueta nòmades)', correct: false },
@@ -108,7 +108,7 @@ export const copy = {
       'Malament. Però t\'estime igual. Crec.',
       'No. Intenta recordar millor. Tinc sentiments.',
       'Error. Com les teues partides de Mario Kart.',
-      'Incorrecte. El Gat Bruno està decebut.'
+      'Incorrecte. El Bruno està decebut.'
     ],
     results: {
       perfect: {
@@ -176,13 +176,13 @@ export const copy = {
     ],
     stats: [
       { label: 'Concerts compartits', value: 'massa per a comptar-los, pocs per a parar' },
-      { label: 'Festivals sobrevivits', value: 'varis (cap amb dignitat intacta)' },
+      { label: 'Festivals sobreviscuts', value: 'molts, però massa pocs (cap amb dignitat intacta)' },
       { label: 'Kalimotxos que van eixir mal', value: 'almenys un memorable' },
       { label: 'Cues de 2km evitades', value: '1 (la de Montjuïc, encara em ric)' },
       { label: 'Partides de Mario Kart', value: 'moltes' },
       { label: '↳ Guanyades per tu', value: 'poques' },
       { label: '↳ Guanyades per mi', value: 'les suficients per a que seguesques amb ràbia' },
-      { label: 'Vegades que has intentat passar-te el Hollow Knight', value: 'incontables' },
+      { label: 'Vegades que has intentat passar-te el Hollow Knight', value: 'incontables, o encara la mateixa...' },
       { label: '↳ Vegades que ho has aconseguit', value: '[LOADING...]' },
       { label: 'Vegades que m\'has aguantat', value: 'incalculables' }
     ]
@@ -226,13 +226,13 @@ export const copy = {
         format: 'fact',
         label: 'FET VERIFICAT:',
         text: 'Una bandera basca serveix de para-sol si el sol pega fort.',
-        note: 'Raimera Roca 2023. Document gràfic disponible.'
+        note: 'Raimera Roca 2022. Document gràfic disponible.'
       },
       {
         format: 'tutorial',
         label: 'TUTORIAL:',
         text: 'Com arrancar un Opel Astra des del seient de darrere.',
-        note: 'Pas 1: Tindre les claus. Pas 2: Creativitat. Pas 3: No preguntes.'
+        note: 'Pas 1: Tindre les claus. Pas 2: Alçar els seients. Pas 3: No preguntes.'
       },
       {
         format: 'warning',
@@ -243,7 +243,7 @@ export const copy = {
       {
         format: 'conclusion',
         label: 'CONCLUSIÓ FINAL:',
-        text: 'Quasi 5 anys d\'amistat passen volant quan estàs amb la persona correcta.',
+        text: 'Quasi 5 anys passen volant quan ets amb la persona correcta.',
         note: null
       }
     ]
@@ -313,11 +313,11 @@ export const copy = {
   gallery: {
     title: 'PROVES DE QUE AÇÒ HA PASSAT',
     subtitle: '(i de que una vegada vas ser xicoteta)',
-    disclaimer: 'Galeria amb més píxels que la càmera del meu primer mòbil. El disseny d\'esta secció ha estat aprovat per 0 de cada 10 professors de disseny de producte.',
+    disclaimer: 'Galeria amb més píxels que la càmera del meu primer mòbil. El disseny d\'esta secció ha estat aprovat per 0 de cada 10 professors de la EASD.',
     captions: {
-      festival: 'SFDK, Sevilla. Suor, cervesa i líriques.',
+      festival: 'SFDK, Sevilla. Suor, motxo i gel.',
       alone: 'Estudiant de disseny. Encara no odia les cadires. Increïble.',
-      baby: 'Versió 1.0 - Sense piercings, sense tatuatges, sense Hollow Knight sense passar-se',
+      baby: 'Versió 1.0 - Sense piercings, sense tatuatges, però Andrea',
       meme: 'Document històric important'
     }
   },
@@ -409,7 +409,7 @@ export const copy = {
       '',
       'Però és un 0.000000000000000001% fet amb tot el que tinc.',
       '',
-      'Feliç 23, Andrius.',
+      'Feliç 23 aniversari, Andrius.',
       '',
       'Vull seguir al teu costat.',
       'Vull seguir sent eixa persona que et trau el millor.',
