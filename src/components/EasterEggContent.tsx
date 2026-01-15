@@ -196,6 +196,87 @@ export default function EasterEggContent({ type }: EasterEggContentProps) {
         </div>
       )
 
+    case 'mirada':
+      return (
+        <div className="text-center">
+          <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--color-accent-pink)', fontFamily: 'var(--font-comic)' }}>
+            👀 LA MIRADA 👀
+          </h3>
+          {content.text.map((line, i) => (
+            <p key={i} className={line === '' ? 'h-4' : 'mb-1'} style={{ color: line.includes('cadires') ? 'var(--color-kaki)' : 'var(--color-text)' }}>
+              {line || '\u00A0'}
+            </p>
+          ))}
+        </div>
+      )
+
+    case 'paella':
+      return (
+        <div className="text-center">
+          <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--color-accent-orange)', fontFamily: 'var(--font-impact)' }}>
+            🥘 {content.title} 🥘
+          </h3>
+          {content.text.map((line, i) => (
+            <p key={i} className={`${line === '' ? 'h-4' : 'mb-1'} ${line.includes('ta mare') ? 'font-bold' : ''}`} style={{ color: line.includes('ta mare') ? 'var(--color-accent-yellow)' : 'var(--color-text)' }}>
+              {line || '\u00A0'}
+            </p>
+          ))}
+        </div>
+      )
+
+    case 'animalCrossing':
+      return (
+        <div className="text-center">
+          <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--color-kaki)', fontFamily: 'var(--font-comic)' }}>
+            🎮 ANIMAL CROSSING 🎮
+          </h3>
+          <p className="text-lg mb-4 italic" style={{ color: 'var(--color-accent-yellow)' }}>
+            {content.sound}
+          </p>
+          {content.text.map((line, i) => (
+            <p key={i} className={`${line === '' ? 'h-4' : 'mb-1'} ${line.includes('préstec') ? 'font-bold' : ''}`} style={{ color: line.includes('préstec') ? 'var(--color-accent-red)' : 'var(--color-text)' }}>
+              {line || '\u00A0'}
+            </p>
+          ))}
+        </div>
+      )
+
+    case 'viRoin':
+      return (
+        <div className="text-center">
+          <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--color-accent-red)', fontFamily: 'var(--font-impact)' }}>
+            🍷 {content.title} 🍷
+          </h3>
+          {content.text.map((line, i) => (
+            <p key={i} className={`${line === '' ? 'h-4' : 'mb-1'} ${line.includes('sagrat') ? 'text-lg font-bold' : ''}`} style={{ color: line.includes('sagrat') ? 'var(--color-purple)' : 'var(--color-text)' }}>
+              {line || '\u00A0'}
+            </p>
+          ))}
+        </div>
+      )
+
+    case 'dali':
+      return (
+        <div className="text-center">
+          <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--color-accent-red)', fontFamily: 'var(--font-impact)' }}>
+            💩 FORA D'ACÍ 💩
+          </h3>
+          {content.text.map((line, i) => (
+            <p
+              key={i}
+              className={`${line === '' ? 'h-4' : 'mb-1'} ${line.includes('Pedòfil') ? 'font-bold text-lg' : ''}`}
+              style={{
+                color: line.includes('Pedòfil') ? 'var(--color-accent-red)' :
+                       line.includes('principis') ? 'var(--color-kaki)' : 'var(--color-text)',
+                textDecoration: line.includes('Dalí') ? 'line-through' : 'none'
+              }}
+            >
+              {line || '\u00A0'}
+            </p>
+          ))}
+        </div>
+      )
+
     default:
       // Generic text-based easter eggs
       if ('text' in content && Array.isArray(content.text)) {

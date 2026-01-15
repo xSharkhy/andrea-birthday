@@ -21,20 +21,29 @@ interface FloatingElement {
 }
 
 const floatingElements: FloatingElement[] = [
-  // Easter eggs amb contingut
-  { id: 'cadira', emoji: '🪑', eggType: 'cadira', style: { top: '15%', right: '3%', fontSize: '2rem', rotation: 15 }, animation: 'wobble' },
-  { id: 'girasol', emoji: '🌻', eggType: 'girasol', style: { top: '40%', left: '2%', fontSize: '1.8rem', rotation: -10 }, animation: 'float' },
-  { id: 'amapola', emoji: '🌺', eggType: 'amapola', style: { bottom: '30%', right: '5%', fontSize: '1.5rem', rotation: 8 }, animation: 'pulse' },
-  { id: 'patrisi', emoji: '🐧', eggType: 'patrisi', style: { bottom: '15%', left: '3%', fontSize: '2rem', rotation: -5 }, animation: 'wobble' },
-  { id: 'hollow', emoji: '🐛', eggType: 'hollowKnight', style: { top: '60%', right: '2%', fontSize: '1.3rem', rotation: 20 }, animation: 'float' },
-  { id: 'palau', emoji: '🏟️', eggType: 'palauSantJordi', style: { top: '25%', left: '4%', fontSize: '1.5rem', rotation: -15 }, animation: 'pulse' },
+  // Easter eggs amb contingut - Originals (mides augmentades per a mòbil)
+  { id: 'cadira', emoji: '🪑', eggType: 'cadira', style: { top: '15%', right: '3%', fontSize: '2.5rem', rotation: 15 }, animation: 'wobble' },
+  { id: 'girasol', emoji: '🌻', eggType: 'girasol', style: { top: '40%', left: '2%', fontSize: '2.2rem', rotation: -10 }, animation: 'float' },
+  { id: 'amapola', emoji: '🌺', eggType: 'amapola', style: { bottom: '30%', right: '5%', fontSize: '2rem', rotation: 8 }, animation: 'pulse' },
+  { id: 'patrisi', emoji: '🐧', eggType: 'patrisi', style: { bottom: '15%', left: '3%', fontSize: '2.5rem', rotation: -5 }, animation: 'wobble' },
+  { id: 'hollow', emoji: '🐛', eggType: 'hollowKnight', style: { top: '60%', right: '2%', fontSize: '1.8rem', rotation: 20 }, animation: 'float' },
+  { id: 'palau', emoji: '🏟️', eggType: 'palauSantJordi', style: { top: '25%', left: '4%', fontSize: '2rem', rotation: -15 }, animation: 'pulse' },
+
+  // Easter eggs nous
+  { id: 'viRoin', emoji: '🍷', eggType: 'viRoin', style: { top: '50%', left: '6%', fontSize: '1.8rem', rotation: 25 }, animation: 'spin' },
+  { id: 'animalCrossing', emoji: '🎮', eggType: 'animalCrossing', style: { bottom: '25%', right: '10%', fontSize: '2rem', rotation: -20 }, animation: 'float' },
+  { id: 'creilles', emoji: '🥔', eggType: 'creilles', style: { top: '75%', left: '5%', fontSize: '1.8rem', rotation: 10 }, animation: 'wobble' },
+  { id: 'paella', emoji: '🥘', eggType: 'paella', style: { bottom: '40%', left: '4%', fontSize: '2rem', rotation: -12 }, animation: 'pulse' },
+  { id: 'vanGogh', emoji: '🎨', eggType: 'vanGogh', style: { top: '35%', right: '4%', fontSize: '1.8rem', rotation: 8 }, animation: 'float' },
+  { id: 'latinos', emoji: '💔', eggType: 'latinos', style: { bottom: '55%', right: '6%', fontSize: '1.6rem', rotation: -15 }, animation: 'pulse' },
+  { id: 'antifeixista', emoji: '✊', eggType: 'antifeixista', style: { top: '20%', left: '8%', fontSize: '1.8rem', rotation: 5 }, animation: 'wobble' },
+  { id: 'mirada', emoji: '👀', eggType: 'mirada', style: { top: '55%', right: '7%', fontSize: '1.6rem', rotation: -8 }, animation: 'float' },
+  { id: 'dali', emoji: '💩', eggType: 'dali', style: { bottom: '10%', right: '15%', fontSize: '1.5rem', rotation: 30 }, animation: 'spin' },
 
   // Elements decoratius sense contingut (per més caos)
   { id: 'deco1', emoji: '✨', style: { top: '10%', left: '15%', fontSize: '1rem', rotation: 0 }, animation: 'pulse' },
-  { id: 'deco2', emoji: '🎵', style: { top: '70%', left: '8%', fontSize: '1.2rem', rotation: 12 }, animation: 'float' },
-  { id: 'deco3', emoji: '🎪', style: { bottom: '50%', right: '8%', fontSize: '1.4rem', rotation: -8 }, animation: 'wobble' },
-  { id: 'deco4', emoji: '🍷', style: { top: '50%', left: '6%', fontSize: '1.1rem', rotation: 25 }, animation: 'spin' },
-  { id: 'deco5', emoji: '🎮', style: { bottom: '25%', right: '10%', fontSize: '1.3rem', rotation: -20 }, animation: 'float' },
+  { id: 'deco2', emoji: '🎵', style: { top: '70%', left: '12%', fontSize: '1.2rem', rotation: 12 }, animation: 'float' },
+  { id: 'deco3', emoji: '🎪', style: { bottom: '50%', right: '12%', fontSize: '1.4rem', rotation: -8 }, animation: 'wobble' },
 ]
 
 export default function EasterEggsContainer() {
@@ -92,11 +101,15 @@ export default function EasterEggsContainer() {
           style={{
             ...el.style,
             fontSize: el.style.fontSize,
-            opacity: el.eggType ? 0.6 : 0.15,
-            transform: `rotate(${el.style.rotation}deg)`
+            opacity: el.eggType ? 0.8 : 0.15,
+            transform: `rotate(${el.style.rotation}deg)`,
+            // Àrea de toc més gran per a mòbil
+            padding: el.eggType ? '0.5rem' : 0,
+            margin: el.eggType ? '-0.5rem' : 0,
           }}
           animate={getAnimation(el.animation, chaosMode)}
           whileHover={el.eggType ? { scale: 1.3, opacity: 1 } : undefined}
+          whileTap={el.eggType ? { scale: 0.9 } : undefined}
           onClick={() => el.eggType && setOpenEgg(el.eggType)}
         >
           {el.emoji}
@@ -149,16 +162,17 @@ export default function EasterEggsContainer() {
               <EasterEggContent type={openEgg} />
               <motion.button
                 onClick={() => setOpenEgg(null)}
-                className="absolute -top-4 -right-4 w-10 h-10 rounded-full flex items-center justify-center text-xl font-bold"
+                className="absolute -top-3 -right-3 w-12 h-12 rounded-full flex items-center justify-center text-2xl font-bold shadow-lg"
                 style={{
                   background: 'var(--color-accent-pink)',
                   color: 'white',
-                  border: '2px solid white'
+                  border: '3px solid white'
                 }}
                 whileHover={{ scale: 1.2, rotate: 180 }}
                 whileTap={{ scale: 0.9 }}
+                aria-label="Tancar"
               >
-                ×
+                ✕
               </motion.button>
             </motion.div>
           </>
