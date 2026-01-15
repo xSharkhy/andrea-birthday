@@ -8,6 +8,7 @@ import {
   getAlternatingVariant,
   defaultViewport
 } from '@/lib/animations'
+import BreakableElement from './BreakableElement'
 
 export default function Timeline() {
   const prefersReducedMotion = useReducedMotion()

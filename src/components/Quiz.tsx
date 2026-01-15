@@ -9,6 +9,7 @@ import {
   defaultViewport,
   chaosEntry
 } from '@/lib/animations'
+import BreakableElement from './BreakableElement'
 
 interface QuizState {
   currentQuestion: number
